@@ -1,0 +1,94 @@
+<!doctype html><html><head><meta charset="utf-8"><title>YouCutOwn Studio guide</title></head><body style="font-family:Segoe UI,Arial;font-size:14px;color:#17343b;margin:24px;">
+<h1>YouCutOwn Studio — everyday guide</h1>
+<h2>Start here</h2>
+<p>Double-click <b>windows.bat</b> in <code>your extracted YouCutOwn Studio folder</code>. The app opens as a native desktop window. It does not launch a browser or server. It needs no account, subscription, API key or internet connection. Python, FFmpeg, Whisper models and Kokoro voices are included in this folder.</p>
+<p>Nothing runs until you choose an action. Only one operation runs at a time. Exports create new files; source videos, music and images are not overwritten. The default destination is the app&#x27;s <b>outputs</b> folder. You can change it using <b>Browse…</b> beside <b>Save new files to</b>.</p>
+<h2>Three buckets</h2>
+<p style="margin-left:14px">- <b>Videos:</b> drop one or more clips here.</p>
+<p style="margin-left:14px">- <b>Audio / music:</b> drop soundtracks, voice recordings or other audio here.</p>
+<p style="margin-left:14px">- <b>Images / watermark:</b> drop photos, slideshow images or a logo here.</p>
+<p>You can also use each bucket&#x27;s <b>Add…</b> button. A mixed drop is sorted into the appropriate buckets. The app references the originals; it does not upload or duplicate them on import. Avoid moving a source file while using it. Each file picker remembers its last used folder. On first use it starts in Videos, Music or Pictures when that standard folder exists.</p>
+<p>Click a row to select it. Single-file tools use that bucket&#x27;s selected row. <b>Join all videos</b>, <b>Make slideshow</b> and <b>Join all audio</b> use every item in the relevant bucket, in its displayed order. Drag rows or use <b>↑ / ↓</b> to reorder. <b>Remove</b> removes an item from the bucket; it does not delete the source file.</p>
+<p>Click <b>Play / pause</b> below the preview. The scrubber seeks through the selected audio/video. A still image shows a static preview. Preview support depends on the input codec; a preview error does not necessarily prevent FFmpeg from exporting.</p>
+<h2>Speed up a video, including 128× and 256×</h2>
+<p style="margin-left:14px">1. Add and select the video.</p>
+<p style="margin-left:14px">2. Open <b>Trim / speed</b>.</p>
+<p style="margin-left:14px">3. Choose <b>Speed ×</b>, such as 2, 16, 64, 128 or 256. You may type a custom number.</p>
+<p style="margin-left:14px">4. Leave <b>End</b> blank to use the entire video, or set a range.</p>
+<p style="margin-left:14px">5. Click <b>Export trimmed / sped-up video</b>.</p>
+<p>This changes the saved video&#x27;s actual duration. A one-hour video becomes about 28 seconds at 128× or 14 seconds at 256×. Custom values range from 0.0625× to 4096×; the selected range must still produce at least one 30 FPS output frame. The app exports 30 FPS by sampling/dropping/duplicating frames; it does not invent motion-interpolated frames.</p>
+<p>At 8× and above, <b>Keep original audio</b> switches off automatically. You may switch it back on if wanted. Lower-speed audio processing preserves pitch. Every time you change the speed, check the audio checkbox again.</p>
+<h2>Trim a video</h2>
+<p>Select the video and use <b>Trim / speed</b>. Enter <b>Start</b> and <b>End</b> as seconds (<code>12.5</code>) or a clock time (<code>00:01:12.5</code>). Blank End means the end of the video. You can scrub the preview and click <b>Use playhead as start/end</b> instead. Keep Speed at <b>1</b> for normal speed. Click <b>Export trimmed / sped-up video</b>.</p>
+<p>To perform another operation on the edited result, click <b>Add result to bucket</b> and select that new row. Each operation creates a separate finished file.</p>
+<h2>Join videos with transitions</h2>
+<p style="margin-left:14px">1. Put the clips in <b>Videos</b> and arrange their order.</p>
+<p style="margin-left:14px">2. Open <b>Join / slides</b>.</p>
+<p style="margin-left:14px">3. Choose <b>Between clips</b>: None, Crossfade, Fade through black, Wipe left,</p>
+<p>Slide left or Dissolve.</p>
+<p style="margin-left:14px">4. Set <b>Transition seconds</b> (0.5 is a useful start).</p>
+<p style="margin-left:14px">5. Choose an output size below the tabs. Use Fit to preserve the whole frame,</p>
+<p>or Fill / crop to fill the frame while cropping its edges.</p>
+<p style="margin-left:14px">6. Click <b>Join all videos</b>.</p>
+<p>Mixed dimensions/frame rates are normalized automatically. Missing audio becomes silence. A transition must be shorter than half of the shortest clip. Transitions overlap adjacent clips, so two 3-second clips with a 0.5-second transition produce about 5.5 seconds. This app renders joins rather than offering a stream-copy mode.</p>
+<h2>Put music or narration over a video</h2>
+<p>Select a video in <b>Videos</b> and a soundtrack in <b>Audio / music</b>. Open <b>Music</b>.</p>
+<p style="margin-left:14px">- Keep <b>Loop video to match full music length</b> checked to repeat the video</p>
+<p>until the music ends. The final repetition is trimmed automatically.</p>
+<p style="margin-left:14px">- Uncheck it to keep the video&#x27;s duration. Shorter music is padded with silence;</p>
+<p>longer music is trimmed.</p>
+<p style="margin-left:14px">- Leave <b>Mix with original sound</b> unchecked to replace the original sound.</p>
+<p style="margin-left:14px">- Check it to keep both. Adjust music/original volume; 1 is the original level.</p>
+<p>Click <b>Export video with music</b>. This uses the selected video and selected audio track, not every file in either bucket. To use several video clips, join them first, then add/select the joined result before using Music.</p>
+<h2>Automatic subtitles and styled captions</h2>
+<p>Finish trimming/speed changes first, then add/select the final edited video.</p>
+<p style="margin-left:14px">1. Open <b>Subtitles</b>.</p>
+<p style="margin-left:14px">2. Choose <b>base.en</b> for faster English transcription or <b>small</b> for</p>
+<p>multilingual recognition. Both are already downloaded and run on CPU.</p>
+<p style="margin-left:14px">3. Click <b>1 Transcribe selected video / audio</b>. If you last selected an audio</p>
+<p>row, it transcribes that audio instead; select the video row again for video.</p>
+<p style="margin-left:14px">4. Correct the text in the editor. Preserve its SRT structure and blank lines</p>
+<p>between entries. Press Enter for line breaks:</p>
+<pre style="background:#edf3f5;padding:12px">
+   1
+   00:00:00,100 --&gt; 00:00:02,800
+   These are my corrected words.
+</pre>
+<p style="margin-left:14px">5. Choose <b>Highlight</b> for active-word color, <b>Outlined</b> for ordinary captions,</p>
+<p>or <b>Boxed</b> for a dark background. Set Bottom/Center/Top and font size.</p>
+<p style="margin-left:14px">6. Click <b>2 Export video with these subtitles</b>.</p>
+<p>Transcription already saves an SRT and word-timing JSON in the output location. <b>Save SRT…</b> saves your corrections separately. <b>Import SRT…</b> associates an existing subtitle file with the currently selected video. Select that same video when burning the subtitles. The app warns if the source does not match.</p>
+<p>Word highlights use recognized word timings where unchanged. If you rewrite a phrase or alter its time range, the new words are distributed across that subtitle range. This is a reasonable approximation, not fresh speech alignment. Review it. Recognition can make mistakes, especially with music/singing; correct before export. Burned captions become part of the image and cannot be turned off in a player.</p>
+<h2>Watermark</h2>
+<p>Add a logo image to <b>Images / watermark</b> and select its row. PNG with transparency works well. Tick <b>Add selected image as watermark</b> below the tabs and choose a corner. The logo is about 14% of the frame width with 80% opacity and a small margin. It applies to video exports from Trim / speed, Join / slides, Music and Subtitles. When captions use the same top/bottom edge, the logo is nudged away from that caption band so the words remain readable. Tall logos are limited in height too. Untick it when not wanted. To change logo size/opacity, prepare a suitable transparent image before importing; this release uses fixed useful defaults.</p>
+<h2>Kokoro voice</h2>
+<p>Open <b>Kokoro voice</b>, type narration, choose a voice and speaking speed, and click <b>Generate voice WAV</b>. The local model uses no Piper or online voice service. Click <b>Add result to bucket</b> when finished. You can then add the WAV to a video using <b>Music</b>. That tab can mix narration with original sound or replace it. Available voices include American and British male/female voices. Text limit is 12,000 characters per operation. Synthesis and speech-model loading may take a moment.</p>
+<h2>Slideshow and extra tools</h2>
+<p style="margin-left:14px">- <b>Join / slides → Make slideshow from all images:</b> ordered images, per-image</p>
+<p>duration, same transition controls. Add music afterward using Music.</p>
+<p style="margin-left:14px">- <b>Extra tools → Extract video audio:</b> selected video&#x27;s audio becomes a WAV.</p>
+<p style="margin-left:14px">- <b>Join all audio:</b> join every audio row in order to WAV.</p>
+<p style="margin-left:14px">- <b>Normalize selected audio loudness:</b> make a separate WAV using an approximate</p>
+<p>-16 LUFS target; this release uses single-pass normalization.</p>
+<p style="margin-left:14px">- <b>Resize / convert image:</b> selected image becomes PNG at the selected output size.</p>
+<p style="margin-left:14px">- <b>Save video frame at trim start:</b> saves one PNG at the Start time in Trim / speed.</p>
+<h2>Outputs, projects and performance</h2>
+<p><b>Preview last result</b> previews the last audio/video/image or returns you to the subtitle editor for SRT. <b>Add result to bucket</b> adds the generated media for another operation. <b>Open folder</b> opens the destination in Explorer.</p>
+<p><b>Project → Save project…</b> saves source references, core editing settings and the current subtitles to JSON. It does not embed/copy source media. Open it with <b>Project → Open project…</b>. Keep the source files in place. Output folder/size are remembered between app launches. Music levels, narration text and some tool settings reset when reopening; the project file is not a full editing timeline.</p>
+<p><b>CPU quality</b> is the reliable starting encoder. <b>NVIDIA</b> uses the T1000&#x27;s hardware H.264 encoder for final video export; CPU filters and intermediate joins still run on CPU. 1080p is a useful starting size; Original preserves the first or selected input dimensions, rounded to even pixels. Vertical is 1080×1920; Square is 1080×1080. Fit adds black bars; Fill / crop removes edges.</p>
+<h2>Cancel or troubleshoot</h2>
+<p>Use <b>Cancel</b> to stop the current job. FFmpeg operations stop promptly; Whisper and Kokoro may finish their current model-loading/inference step before responding. Closing the app during an export asks whether to cancel. This release does not resume interrupted renders; restart the operation.</p>
+<p style="margin-left:14px">- No speech found: try the multilingual model and check that the file has speech.</p>
+<p style="margin-left:14px">- Bad/missing preview: export a compatible MP4; an unsupported preview does not</p>
+<p>imply FFmpeg cannot read it.</p>
+<p style="margin-left:14px">- Transition error: reduce the transition duration or remove an extremely short clip.</p>
+<p style="margin-left:14px">- NVIDIA error: choose CPU quality and retry.</p>
+<p style="margin-left:14px">- Unsupported input: installed decoders determine support; unusual RAW/HEIC files</p>
+<p>may need conversion first. Animated images are treated as stills in slideshows.</p>
+<p style="margin-left:14px">- Missing file after reopening project: put the source back, or add it again.</p>
+<p style="margin-left:14px">- Detailed FFmpeg logs and frozen job requests are in <b>work</b>. Small logs are kept;</p>
+<p>temporary render media is removed at the end of a job. If Windows or the process was forcibly killed, a .partial.mp4 or intermediate may remain.</p>
+<p style="margin-left:14px">- Startup problems: launch <code>runtime\\python.exe app.py</code> from a terminal in the app</p>
+<p>folder to see errors; normal windowed-startup messages are in <b>logs/app.log</b>.</p>
+<p>Keep the complete YouCutOwn Studio folder together. It does not need a separate build folder, system Python packages, a browser, an account or internet during normal use.</p>
+</body></html>

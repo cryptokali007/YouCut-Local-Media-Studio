@@ -1,0 +1,24 @@
+# Installed/downloaded assets and user data stay inside the extracted folder.
+app/runtime/
+app/bin/
+app/models/
+app/cache/
+app/licenses/
+app/logs/
+app/work/
+app/outputs/
+app/qa/
+app/sample-media/
+app/tests/results/
+app/settings.json
+app/project.json
+__pycache__/
+*.py[cod]
+.validation/
+.venv/
+dist/
+*.log
+*.partial*
+.env
+.env.*
+!.env.example

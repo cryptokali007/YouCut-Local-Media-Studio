@@ -1,0 +1,49 @@
+name: Windows source ZIP and media checks
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 25
+    env:
+      QT_QPA_PLATFORM: offscreen
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install into this extracted source folder
+        shell: cmd
+        run: Install.bat -CoreOnly -NoPause
+      - name: Setup integrity and offline cache checks
+        shell: cmd
+        run: app\runtime\python.exe -m unittest discover -s tests -v
+      - name: Real image, video and recovery checks
+        shell: cmd
+        run: |
+          app\runtime\python.exe app\tests\verify_image_formats.py
+          if errorlevel 1 exit /b 1
+          app\runtime\python.exe app\tests\verify_media.py --core-only
+          if errorlevel 1 exit /b 1
+          app\runtime\python.exe app\tests\verify_recovery.py
+          if errorlevel 1 exit /b 1
+          app\runtime\python.exe tests\ui_exports.py
+          if errorlevel 1 exit /b 1
+      - name: Native application launch
+        shell: cmd
+        run: windows.bat --smoke
+      - name: Preserve diagnostic logs on failure
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-test-diagnostics
+          path: |
+            app/logs/
+            app/work/**/*.log
+          retention-days: 7

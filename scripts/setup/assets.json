@@ -1,0 +1,97 @@
+{
+  "schema": 1,
+  "python": {
+    "version": "3.13.16",
+    "filename": "python-3.13.16-embed-amd64.zip",
+    "url": "https://www.python.org/ftp/python/3.13.16/python-3.13.16-embed-amd64.zip",
+    "sha256": "97dae5274cc54867065e8d5a3226e48c35017ed332a0fdb0e27d5b5821961297"
+  },
+  "pip": {
+    "filename": "pip-25.3-py3-none-any.whl",
+    "url": "https://files.pythonhosted.org/packages/44/3c/d717024885424591d5376220b5e836c2d5293ce2011523c9de23ff7bf068/pip-25.3-py3-none-any.whl",
+    "sha256": "9655943313a94722b7774661c21049070f6bbb0a1516bf02f7c8d5d9201514cd"
+  },
+  "ffmpeg": {
+    "version": "8.0-full",
+    "filename": "ffmpeg-8.0-full_build.zip",
+    "url": "https://github.com/GyanD/codexffmpeg/releases/download/8.0/ffmpeg-8.0-full_build.zip",
+    "sha256": "48ca5e824d2660a94f89fd55287b7c35129b55bbe680c4330efeed5269c4820f"
+  },
+  "models": [
+    {
+      "path": "whisper-base.en/config.json",
+      "filename": "whisper-base.en-config.json",
+      "url": "https://huggingface.co/Systran/faster-whisper-base.en/resolve/3d3d5dee26484f91867d81cb899cfcf72b96be6c/config.json",
+      "sha256": "f3bc3821e9fc76a27bae538e11ae5b677dcdd352b4600429ce7951d398569aeb",
+      "license": "MIT"
+    },
+    {
+      "path": "whisper-base.en/model.bin",
+      "filename": "whisper-base.en-model.bin",
+      "url": "https://huggingface.co/Systran/faster-whisper-base.en/resolve/3d3d5dee26484f91867d81cb899cfcf72b96be6c/model.bin",
+      "sha256": "2a166925539a16005f14ff328359f9b9adb9dc4fb631bb3b227526862e93e2ef",
+      "license": "MIT"
+    },
+    {
+      "path": "whisper-base.en/tokenizer.json",
+      "filename": "whisper-base.en-tokenizer.json",
+      "url": "https://huggingface.co/Systran/faster-whisper-base.en/resolve/3d3d5dee26484f91867d81cb899cfcf72b96be6c/tokenizer.json",
+      "sha256": "929c5252409436dce1b38a75d1abbcb5e132d170d8e324e4e04ed915fa2d22df",
+      "license": "MIT"
+    },
+    {
+      "path": "whisper-base.en/vocabulary.txt",
+      "filename": "whisper-base.en-vocabulary.txt",
+      "url": "https://huggingface.co/Systran/faster-whisper-base.en/resolve/3d3d5dee26484f91867d81cb899cfcf72b96be6c/vocabulary.txt",
+      "sha256": "ff77588746d3a2595d32ab5b69ffd7b95ce2441ac57533cb66fc3eb575a115cf",
+      "license": "MIT"
+    },
+    {
+      "path": "whisper-small/config.json",
+      "filename": "whisper-small-config.json",
+      "url": "https://huggingface.co/Systran/faster-whisper-small/resolve/536b0662742c02347bc0e980a01041f333bce120/config.json",
+      "sha256": "b55496ac7940a7ae47d2c01eab40edfd8701feec1229d9cce3b40014383fb828",
+      "license": "MIT"
+    },
+    {
+      "path": "whisper-small/model.bin",
+      "filename": "whisper-small-model.bin",
+      "url": "https://huggingface.co/Systran/faster-whisper-small/resolve/536b0662742c02347bc0e980a01041f333bce120/model.bin",
+      "sha256": "3e305921506d8872816023e4c273e75d2419fb89b24da97b4fe7bce14170d671",
+      "license": "MIT"
+    },
+    {
+      "path": "whisper-small/tokenizer.json",
+      "filename": "whisper-small-tokenizer.json",
+      "url": "https://huggingface.co/Systran/faster-whisper-small/resolve/536b0662742c02347bc0e980a01041f333bce120/tokenizer.json",
+      "sha256": "fb7b63191e9bb045082c79fd742a3106a12c99513ab30df4a0d47fa6cb6fd0ab",
+      "license": "MIT"
+    },
+    {
+      "path": "whisper-small/vocabulary.txt",
+      "filename": "whisper-small-vocabulary.txt",
+      "url": "https://huggingface.co/Systran/faster-whisper-small/resolve/536b0662742c02347bc0e980a01041f333bce120/vocabulary.txt",
+      "sha256": "34ce3fe1c5041027b3f8d42912270993f986dbc4bb34cf27f951e34a1e453913",
+      "license": "MIT"
+    },
+    {
+      "path": "kokoro/kokoro-v1.0.onnx",
+      "filename": "kokoro-v1.0.onnx",
+      "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/kokoro-v1.0.onnx",
+      "sha256": "7d5df8ecf7d4b1878015a32686053fd0eebe2bc377234608764cc0ef3636a6c5",
+      "license": "Apache-2.0 (Kokoro model; see upstream voice provenance)"
+    },
+    {
+      "path": "kokoro/voices-v1.0.bin",
+      "filename": "voices-v1.0.bin",
+      "url": "https://github.com/thewh1teagle/kokoro-onnx/releases/download/model-files-v1.0/voices-v1.0.bin",
+      "sha256": "bca610b8308e8d99f32e6fe4197e7ec01679264efed0cac9140fe9c29f1fbf7d",
+      "license": "Apache-2.0 (Kokoro model; see upstream voice provenance)"
+    }
+  ],
+  "vc_runtime": {
+    "filename": "VC_redist.x64.exe",
+    "url": "https://download.visualstudio.microsoft.com/download/pr/ebdab8e5-1d7b-4d9f-a11b-cbb1720c3b12/843068991DAAA1F73AD9F6239BCE4D0F6A07A51F18C37EA2A867E9BECA71295C/VC_redist.x64.exe",
+    "sha256": "843068991daaa1f73ad9f6239bce4d0f6a07a51f18c37ea2a867e9beca71295c"
+  }
+}
