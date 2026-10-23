@@ -18,14 +18,22 @@ jobs:
       PIP_DISABLE_PIP_VERSION_CHECK: '1'
     steps:
       - uses: actions/checkout@v4
+      - name: Create and extract source ZIP
+        shell: pwsh
+        run: |
+          git archive --format=zip --output=source.zip HEAD
+          Expand-Archive -Path source.zip -DestinationPath "YouCutOwn Studio" -Force
       - name: Install into this extracted source folder
         shell: cmd
+        working-directory: YouCutOwn Studio
         run: Install.bat -CoreOnly -NoPause
       - name: Setup integrity and offline cache checks
         shell: cmd
+        working-directory: YouCutOwn Studio
         run: app\runtime\python.exe -m unittest discover -s tests -v
       - name: Real image, video and recovery checks
         shell: cmd
+        working-directory: YouCutOwn Studio
         run: |
           app\runtime\python.exe app\tests\verify_image_formats.py
           if errorlevel 1 exit /b 1
@@ -37,6 +45,7 @@ jobs:
           if errorlevel 1 exit /b 1
       - name: Native application launch
         shell: cmd
+        working-directory: YouCutOwn Studio
         run: windows.bat --smoke
       - name: Preserve diagnostic logs on failure
         if: failure()
@@ -44,6 +53,6 @@ jobs:
         with:
           name: windows-test-diagnostics
           path: |
-            app/logs/
-            app/work/**/*.log
+            YouCutOwn Studio/app/logs/
+            YouCutOwn Studio/app/work/**/*.log
           retention-days: 7
