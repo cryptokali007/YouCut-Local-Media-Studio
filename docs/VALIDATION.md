@@ -33,8 +33,8 @@ Public package validation completed locally on Windows x64 on 2026-10-23:
   verified cache. Models and generated outputs remained available afterward.
 - Independent GitHub Windows runners installed from an extracted source ZIP and
   passed setup integrity, image/media/recovery, native button exports, and BAT
-  launch checks. See the [source-ZIP CI run](https://github.com/cryptokali007/youcutown-studio/actions/runs/40017165328)
-  and the [current workflow](https://github.com/cryptokali007/youcutown-studio/actions/workflows/windows.yml).
+  launch checks. See the [source-ZIP CI run](https://github.com/cryptokali007/YouCut-Local-Media-Studio/actions/runs/40017165328)
+  and the [current workflow](https://github.com/cryptokali007/YouCut-Local-Media-Studio/actions/workflows/windows.yml).
 - A separate Luna agent used only the README, in-app guide, screenshots, and
   ordinary Qt mouse/keyboard/drop events. It successfully found and exported
   high-quality JPEG, lossless WebP, and a 2x video edit, then inspected the files.

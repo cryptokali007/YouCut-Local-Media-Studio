@@ -1,6 +1,6 @@
 # YouCutOwn Studio
 
-[![Windows source ZIP and media checks](https://github.com/cryptokali007/youcutown-studio/actions/workflows/windows.yml/badge.svg)](https://github.com/cryptokali007/youcutown-studio/actions/workflows/windows.yml)
+[![Windows source ZIP and media checks](https://github.com/cryptokali007/YouCut-Local-Media-Studio/actions/workflows/windows.yml/badge.svg)](https://github.com/cryptokali007/YouCut-Local-Media-Studio/actions/workflows/windows.yml)
 
 **Your media. Your machine. No subscription.**
 
@@ -17,7 +17,7 @@ browser server, subscription, or paid rendering service is required.
 ## Download and run
 
 1. Select **Code → Download ZIP**, or download the source ZIP from
-   [Releases](https://github.com/cryptokali007/youcutown-studio/releases).
+   [Releases](https://github.com/cryptokali007/YouCut-Local-Media-Studio/releases).
 2. **Extract the entire ZIP** into a folder you can write to, such as a folder
    inside Documents. Do not run the BAT directly inside the ZIP.
 3. Double-click **windows.bat**. On first run it performs the installation and

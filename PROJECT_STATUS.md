@@ -3,7 +3,10 @@
 Updated 2026-10-23 (America/Los_Angeles).
 
 - Public project: YouCutOwn Studio; dedicated original repository
-  https://github.com/cryptokali007/youcutown-studio.
+  https://github.com/cryptokali007/YouCut-Local-Media-Studio.
+- Repository name is exactly YouCut-Local-Media-Studio; repository links and Git
+  remote were updated in place. Existing app code, installation and v1.0.0 release
+  are preserved.
 - Canonical development source: this repository root; entry point app/app.py.
 - Version: 1.0.0; source ZIP and SHA-256 checksum distributed through GitHub Releases.
 - Run: windows.bat; first run invokes automatic setup, later runs open the native app.
