@@ -153,7 +153,7 @@ Available voices include American and British male/female voices. Text limit is
 - **Join all audio:** join every audio row in order to WAV.
 - **Normalize selected audio loudness:** make a separate WAV using an approximate
   -16 LUFS target; this release uses single-pass normalization.
-- **Resize / convert image:** selected image becomes PNG at the selected output size.
+- **Resize / convert image:** choose PNG, high-quality JPEG/JPG, or lossless WebP under Image file type, then export the selected image at the chosen output size.
 - **Save video frame at trim start:** saves one PNG at the Start time in Trim / speed.
 
 ## Outputs, projects and performance

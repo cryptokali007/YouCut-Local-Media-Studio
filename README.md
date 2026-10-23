@@ -1,5 +1,7 @@
 # YouCutOwn Studio
 
+[![Windows source ZIP and media checks](https://github.com/cryptokali007/youcutown-studio/actions/workflows/windows.yml/badge.svg)](https://github.com/cryptokali007/youcutown-studio/actions/workflows/windows.yml)
+
 **Your media. Your machine. No subscription.**
 
 Free, open-source video, audio, and image tools for Windows, powered by Python and

@@ -24,9 +24,29 @@ Public package validation completed locally on Windows x64 on 2026-10-23:
 - Three native converter-button exports passed (JPEG, lossless WebP, PNG), including
   remembered format selection. The BAT smoke launch and readable UI capture passed.
 
-Fresh source-ZIP, independent Windows CI, and offline repair checks are recorded
-here as those release checks complete. A prepared download cache was used for
-part of local package installation; it is not committed or included in source ZIPs.
+- A fresh source-only ZIP was extracted to a path containing spaces with no Git
+  metadata, runtime, models, or download cache. Install.bat -CoreOnly -NoPause
+  fetched the public assets and all wheels, bootstrapped its private runtime, and
+  passed imports, dependency checks, FFmpeg execution, all six setup tests, all
+  nine image tests, and windows.bat --smoke.
+- Repair.bat -Offline -NoPause completed against the full installation using its
+  verified cache. Models and generated outputs remained available afterward.
+- Independent GitHub Windows runners installed from an extracted source ZIP and
+  passed setup integrity, image/media/recovery, native button exports, and BAT
+  launch checks. See the [source-ZIP CI run](https://github.com/cryptokali007/youcutown-studio/actions/runs/40017165328)
+  and the [current workflow](https://github.com/cryptokali007/youcutown-studio/actions/workflows/windows.yml).
+- A separate Luna agent used only the README, in-app guide, screenshots, and
+  ordinary Qt mouse/keyboard/drop events. It successfully found and exported
+  high-quality JPEG, lossless WebP, and a 2x video edit, then inspected the files.
+  The guide opened and was readable. This was an app-owned QA controller test,
+  not OS-wide mouse automation. An inactive-window focus issue in that controller
+  was corrected; it was not a failure of normal narration text entry. The agent
+  then replaced the narration text through the visible field and generated a
+  valid 24 kHz mono, 16-bit Kokoro WAV. The app displayed Saved at 100%.
+
+A prepared download cache was used for part of the first full local installation;
+the separate fresh-ZIP and hosted CI installations fetched their own assets.
+No prepared cache is committed or included in source ZIPs.
 
 The source repository includes real output tests for image formats, video/audio
 operations, transitions, high-speed exports, cancellation, Unicode paths and source

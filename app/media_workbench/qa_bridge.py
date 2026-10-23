@@ -35,7 +35,8 @@ class Bridge:
         if kind in {'click','doubleclick'}:
             (QTest.mouseDClick if kind=='doubleclick' else QTest.mouseClick)(widget,Qt.MouseButton.LeftButton,Qt.KeyboardModifier.NoModifier,point)
         elif kind=='type':
-            focus=QApplication.focusWidget()
+            focus=QApplication.focusWidget() or window.focusWidget()
+            if focus is None:raise ValueError('Click a text field before typing.')
             if focus:
                 for char in r['text']:
                     if char=='\n':
@@ -47,7 +48,7 @@ class Bridge:
             key=r['key'].lower();mod=Qt.KeyboardModifier.ControlModifier if key.startswith('ctrl+') else Qt.KeyboardModifier.NoModifier
             key=key.removeprefix('ctrl+')
             keys={'tab':Qt.Key.Key_Tab,'enter':Qt.Key.Key_Return,'escape':Qt.Key.Key_Escape,'space':Qt.Key.Key_Space,'down':Qt.Key.Key_Down,'up':Qt.Key.Key_Up,'delete':Qt.Key.Key_Delete,'home':Qt.Key.Key_Home,'end':Qt.Key.Key_End}
-            QTest.keyClick(QApplication.focusWidget() or window,keys.get(key,ord(key.upper()) if len(key)==1 else Qt.Key.Key_unknown),mod)
+            QTest.keyClick(QApplication.focusWidget() or window.focusWidget() or window,keys.get(key,ord(key.upper()) if len(key)==1 else Qt.Key.Key_unknown),mod)
         elif kind=='drop':
             mime=QMimeData();mime.setUrls([QUrl.fromLocalFile(str(Path(p).resolve())) for p in r['paths']])
             enter=QDragEnterEvent(point,Qt.DropAction.CopyAction,mime,Qt.MouseButton.LeftButton,Qt.KeyboardModifier.NoModifier)
